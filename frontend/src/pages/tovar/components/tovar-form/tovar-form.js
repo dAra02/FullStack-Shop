@@ -63,6 +63,9 @@ const TovarFormContainer = ({ className, tovar: { id, imageUrl, title, price, co
 	}
 
 	const onTovarChange = ({ target }) => {
+		if (target.value === '') {
+			return;
+		}
 		setSelectedCategorId(Number(target.value));
 	};
 
@@ -80,6 +83,7 @@ const TovarFormContainer = ({ className, tovar: { id, imageUrl, title, price, co
 				<div className="categor-select">
 					<div className="text-categor">Выбор категории:</div>
 					<select value={selectedCategorId} onChange={onTovarChange}>
+						<option value="" className="scrit"></option>
 						{categor
 							.filter(({ id }) => id !== 0)
 							.map(({ id: categorId, name }) => (
@@ -143,5 +147,9 @@ export const TovarForm = styled(TovarFormContainer)`
 		font-weight: 500;
 		text-align: center;
 		padding: 0 0 15px 0;
+	}
+
+	.scrit {
+		display: none;
 	}
 `;

@@ -11,7 +11,6 @@ const TovarSchema = mongoose.Schema({
     type: String,
     required: true,
     validate: validator.isURL,
-    message: "Image should be a valid url",
   },
   categor: {
     type: Number,
@@ -19,7 +18,7 @@ const TovarSchema = mongoose.Schema({
   },
   price: {
     type: Number,
-    require: true,
+    required: true,
   },
   content: {
     type: String,
